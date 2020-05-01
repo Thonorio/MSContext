@@ -14,10 +14,10 @@ import java.util.concurrent.ExecutionException;
 public class IplApplication {
 
 	public static void main(String[] args) {
-		//SpringApplication.run(IplApplication.class, args);
+		SpringApplication.run(IplApplication.class, args);
 		//IplApplication.class.getProtectionDomain().getCodeSource().getLocation();
 		//BluetoothManager manager = BluetoothManager.getBluetoothManager();
-		try {
+		/*try {
 			new BluetoothManagerBuilder()
 					.withTinyBTransport(true)
 					.withBlueGigaTransport("^*.$")
@@ -32,7 +32,7 @@ public class IplApplication {
 			e.printStackTrace();
 		} catch (ExecutionException e) {
 			e.printStackTrace();
-		}
+		}*/
 	}
 
 }
