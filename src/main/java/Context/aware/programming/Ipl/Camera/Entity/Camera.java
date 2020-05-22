@@ -1,18 +1,26 @@
 package Context.aware.programming.Ipl.Camera.Entity;
 
 import javax.persistence.*;
+import java.util.UUID;
 
 @Entity
 public class Camera {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private UUID uuid;
 
     private String name;
 
     private boolean occupied;
 
     private String location;
+
+    public UUID getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(UUID uuid) {
+        this.uuid = uuid;
+    }
 
     public String getName() {
         return name;
