@@ -26,6 +26,8 @@ public class CameraController {
     @PostMapping("/cameras")
     public ResponseEntity createCamera(@RequestBody Map<String, Object> payload){
 
+
+        System.out.println("creating");
         UUID uuid = UUID.fromString(payload.get("uuid").toString());
 
         Optional<Camera> camera = cameraRepository.findByUuid(uuid);
@@ -53,13 +55,17 @@ public class CameraController {
         Optional<Camera> camera = cameraRepository.findByUuid(uuid);
 
         if(!camera.isPresent()){
-            return new ResponseEntity("This camera is not registered", HttpStatus.BAD_REQUEST);
+            Camera newCamera = new Camera();
+            newCamera.setUuid(uuid);
+            newCamera.setName(payload.get("name").toString());
+            newCamera.setOccupied((Boolean) payload.get("occupied"));
+            newCamera.setLocation(payload.get("location").toString());
+        }else{
+            camera.get().setUuid(uuid);
+            camera.get().setName(payload.get("name").toString());
+            camera.get().setOccupied((Boolean) payload.get("occupied"));
+            camera.get().setLocation(payload.get("location").toString());
         }
-
-        camera.get().setUuid(uuid);
-        camera.get().setName(payload.get("name").toString());
-        camera.get().setOccupied((Boolean) payload.get("occupied"));
-        camera.get().setLocation(payload.get("location").toString());
 
         // Return
         return new ResponseEntity(camera, HttpStatus.OK);
