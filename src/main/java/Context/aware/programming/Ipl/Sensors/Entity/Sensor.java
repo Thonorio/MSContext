@@ -1,15 +1,13 @@
-package Context.aware.programming.Ipl.Bluetooth.Entity;
+package Context.aware.programming.Ipl.Sensors.Entity;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.UUID;
 
 @Entity
-public class Beacon {
+public class Sensor {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private UUID uuid;
 
     private String name;
 
@@ -18,6 +16,14 @@ public class Beacon {
     private String temperature;
 
     private String humidity;
+
+    public UUID getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(UUID uuid) {
+        this.uuid = uuid;
+    }
 
     public String getName() {
         return name;

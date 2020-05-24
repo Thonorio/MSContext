@@ -1,4 +1,4 @@
-package Context.aware.programming.Ipl.OutputDevice;
+package Context.aware.programming.Ipl.OutputDevice.Websoket;
 
 public class Message {
 

@@ -1,6 +1,9 @@
 package Context.aware.programming.Ipl.Camera.Entity;
 
+import Context.aware.programming.Ipl.Sensors.Entity.Sensor;
+
 import javax.persistence.*;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
