@@ -43,10 +43,10 @@ noble.on('discover', function (peripheral) {
             var batteryService = services[0];
             batteryService.discoverCharacteristics(['2a19'], function (error, characteristics) {
                 var batteryLevelCharacteristic = characteristics[0];
-                console.log('discovered Battery Level characteristic');
+                console.log('Discovered Temperature characteristic');
 
                 batteryLevelCharacteristic.on('data', function (data, isNotification) {
-                    console.log(uuid)
+                    console.log("Temperature updated, current value: " +  data.readUInt8(0))
                     const queryUpdate = `
                     UPDATE sensor
                     set uuid = '${uuid}',
@@ -65,7 +65,7 @@ noble.on('discover', function (peripheral) {
 
                 // to enable notify
                 batteryLevelCharacteristic.subscribe(function (error) {
-                    console.log('battery level notification on');
+                    console.log('Temperature notification on');
                 });
             });
         })

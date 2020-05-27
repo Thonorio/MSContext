@@ -23,12 +23,12 @@ public class CameraController {
     @Autowired
     SensorRepository sensorRepository;
 
-    @GetMapping("/cameras")
+    @GetMapping("/locations")
     public List<Camera> allCameras(){
         return cameraRepository.findAll();
     }
 
-    @PostMapping("/cameras")
+    @PostMapping("/locations")
     public ResponseEntity createCamera(@RequestBody Map<String, Object> payload){
 
         UUID uuid = UUID.fromString(payload.get("uuid").toString());
@@ -57,7 +57,7 @@ public class CameraController {
         return new ResponseEntity(newCamera, HttpStatus.OK);
     }
 
-    @PostMapping(value = "/cameras/{uuid}")
+    @PostMapping(value = "/locations/{uuid}")
     public ResponseEntity insertDataIntoCamera(@PathVariable UUID uuid,
                                                @RequestBody Map<String, Object> payload){
 
