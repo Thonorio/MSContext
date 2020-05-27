@@ -4,7 +4,6 @@
 Before you start, you should make sure the following requirements are met: 
 * Postgres Installed 
 * NodeJs Installed
-* Python 3.* Installed
 
 
 ### Database
