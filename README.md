@@ -4,6 +4,7 @@
 Before you start, you should make sure the following requirements are met: 
 * Postgres Installed 
 * NodeJs Installed
+* JDK 11 Install
 
 
 ### Database
